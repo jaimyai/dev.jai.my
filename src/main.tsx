@@ -6,6 +6,7 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
+import "./index.css";
 
 function Redirect() {
   const location = useLocation();
@@ -19,18 +20,15 @@ function Redirect() {
   return null;
 }
 
-function App() {
-  return (
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <div className="redirectBox">
+      <a href="https://jaimy.ai">Redirecting...</a>
+    </div>
     <Router>
       <Routes>
         <Route path="/*" element={<Redirect />} />
       </Routes>
     </Router>
-  );
-}
-
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  </React.StrictMode>
 );
